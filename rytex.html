@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rytex</title>
+	<style>
+		body {
+			background-color: black;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			font-family: 'Pacifico', cursive;
+		}
+		
+		#bar-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		
+		#bar {
+			width: 400px;
+			background-color: white;
+			text-align: center;
+			font-size: 24px;
+			font-weight: bold;
+			padding: 10px;
+			border-radius: 5px;
+			box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+			cursor: pointer;
+		}
+		
+		#bar:hover {
+			box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+		}
+		
+		#headline {
+			color: red;
+			font-size: 32px;
+			margin-bottom: 20px;
+		}
+	</style>
+	<link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div id="bar-container">
+		<div id="headline">Click to copy</div>
+		<div id="bar" onclick="copyToClipboard()">87jhdaskjxzchoudwa441</div>
+	</div>
+	
+	<script>
+		function copyToClipboard() {
+			const text = document.getElementById("bar").innerText;
+			navigator.clipboard.writeText(text)
+				.then(() => alert(`Copied "${text}" to clipboard!`))
+				.catch(err => console.error('Could not copy text: ', err));
+		}
+	</script>
+</body>
+</html>
